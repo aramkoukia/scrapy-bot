@@ -5,15 +5,14 @@ import scrapy
 class ToScrapeCSSSpider(scrapy.Spider):
     name = "toscrape-css"
     start_urls = [
-        'http://quotes.toscrape.com/',
+        'http://lightsandparts.com/products/',
     ]
 
     def parse(self, response):
-        for quote in response.css("div.quote"):
+        for quote in response.css("div.vc_row"):
             yield {
-                'text': quote.css("span.text::text").extract_first(),
-                'author': quote.css("small.author::text").extract_first(),
-                'tags': quote.css("div.tags > a.tag::text").extract()
+                'text': quote.css("h3 > a > span::text").extract_first(),
+                'image': quote.css("figure > a > img::attr(src)").extract()
             }
 
         next_page_url = response.css("li.next > a::attr(href)").extract_first()
