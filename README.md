@@ -1,4 +1,4 @@
-# QuotesBot
+# Scrapy Bot
 This is a Scrapy project to scrape quotes from famous people from http://quotes.toscrape.com ([github repo](https://github.com/scrapinghub/spidyquotes)).
 
 This project is only meant for educational purposes.
