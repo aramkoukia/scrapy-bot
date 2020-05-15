@@ -5,7 +5,7 @@ import scrapy
 class ToScrapeSpiderXPath(scrapy.Spider):
     name = 'toscrape-xpath'
     start_urls = [
-        'http://lightsandparts.com/products/',
+        'https://lightsandparts.com/product-category/led-pot-ceiling-lights/led-retrofit/',
     ]
 
     def parse(self, response):
