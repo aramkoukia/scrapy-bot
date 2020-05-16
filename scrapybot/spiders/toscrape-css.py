@@ -9,9 +9,9 @@ class ToScrapeCSSSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-        for quote in response.css("div.woocommerce.columns-4"):
+        for quote in response.css("#primary > div.woocommerce.columns-4 > div"):
             yield {
-                'text': quote.css("div.meta-wrapper > h3 > a::text").extract_first(),
+                'text': quote.css("h3 > a::text").extract_first(),
                 'code': quote.css("div > div.meta-wrapper > span::text").extract_first(),
                 'image': quote.css("figure > img  figure > img::attr(src)").extract()
             }
